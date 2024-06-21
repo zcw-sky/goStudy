@@ -1,0 +1,9 @@
+当前的结构要注意，因为nginx和php的配置路径是写在配置文件中的，如果说路径有变化
+那么配置文件中对应引用的地方也要做修改
+
+在终端中，导航到包含 Dockerfile 的目录并运行以下命令构建镜像：
+docker build -t my-lamp-image .
+
+运行镜像
+构建完成后，可以运行镜像：
+docker run -d -p 80:80 -p 3306:3306 --name my-lamp-container my-lamp-image
