@@ -15,7 +15,9 @@ func login(ctx *gin.Context) {
 	log.Println(ck, err)
 	ctx.HTML(http.StatusOK, "login.html", gin.H{})
 }
+
 func login1(ctx *gin.Context) {
+
 	userName := ctx.PostForm("username")
 	passWord := ctx.PostForm("password")
 	arr := ctx.PostFormArray("hobby")
@@ -38,7 +40,7 @@ func login1(ctx *gin.Context) {
 	}
 	ctx.SetCookie("go_userName", userName, 3600, "/", "localhost", false, true)
 	ctx.JSON(200, gin.H{
-		"code":     1,
+		"code":     http.StatusOK,
 		"msg":      "v1登录成功",
 		"userName": userName,
 		"passWord": passWord,
